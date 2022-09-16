@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
-        android:background="#7b9acd"
+        android:background="#7b9acc"
         android:id="@+id/toolBar"
         >
         <RelativeLayout
