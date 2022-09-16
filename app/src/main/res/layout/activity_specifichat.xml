@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".specifichat">
 
     <androidx.appcompat.widget.Toolbar
@@ -26,7 +25,8 @@
                 android:id="@+id/backButtonOfspecificchat"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_baseline_arrow_back_24"
-                android:layout_centerVertical="true"></ImageButton>
+                android:layout_centerVertical="true"
+                tools:ignore="ContentDescription" />
 
 
 
@@ -35,9 +35,9 @@
                 android:layout_width="35dp"
 
                 android:layout_height="35dp"
-              android:layout_marginLeft="5dp"
+              android:layout_marginStart="5dp"
 
-                android:layout_toRightOf="@+id/backButtonOfspecificchat"
+                android:layout_toEndOf="@+id/backButtonOfspecificchat"
                 android:id="@+id/cardviewofspecificuser"
                 android:layout_centerVertical="true"
                 app:cardCornerRadius="35dp">
@@ -48,7 +48,7 @@
                     android:src="@drawable/ic_launcher_background"
                     android:id="@+id/specificchatuserimageviewofuser"
                     android:scaleType="centerCrop"
-                    ></ImageView>
+                    tools:ignore="ContentDescription" />
 
             </androidx.cardview.widget.CardView>
 
@@ -57,12 +57,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/cardviewofspecificuser"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/cardviewofspecificuser"
                 android:text="Your Profile"
                 android:textColor="@color/font"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
 
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -81,38 +82,39 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="150dp"
         android:layout_marginBottom="5dp"
         android:autofillHints=""
         android:background="@drawable/messagebackground"
         android:hint="Type a message"
         android:inputType="textCapWords"
         android:paddingStart="20dp"
-        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textColorHint="#a8A7a7"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <ImageButton
         android:id="@+id/file"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="-110dp"
+        android:layout_marginStart="-110dp"
         android:layout_marginBottom="7dp"
-        android:layout_toRightOf="@+id/getmessage"
+        android:layout_toEndOf="@+id/getmessage"
         android:src="@drawable/ic_link"
         android:backgroundTint="@color/white"
-        tools:ignore="OnClick"></ImageButton>
+        tools:ignore="ContentDescription,OnClick"/>
     <androidx.cardview.widget.CardView
         android:layout_width="45dp"
 
         android:layout_height="45dp"
         android:id="@+id/cardviewofsendmessage"
-        android:layout_toRightOf="@+id/file"
-        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/file"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/black"
         android:layout_alignParentBottom="true"
@@ -131,8 +133,7 @@
             android:id="@+id/imageviewofsendmessage"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            ></ImageButton>
-z
+            tools:ignore="ContentDescription" />
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

@@ -14,9 +14,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="Save Your Profile"
+        tools:ignore="HardcodedText"
         android:textColor="@color/back"
         android:textSize="30sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="130dp"
@@ -27,14 +28,15 @@
         android:layout_marginBottom="20dp"
         android:id="@+id/getUserImage"
         android:layout_marginLeft="80dp"
-        app:cardCornerRadius="130dp">
+        app:cardCornerRadius="130dp"
+        tools:ignore="RtlHardcoded">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/defaultprofile"
             android:id="@+id/getUserImageInImageview"
             android:scaleType="centerCrop"
-            ></ImageView>
+            tools:ignore="ContentDescription" />
     </androidx.cardview.widget.CardView>
 
     <EditText
@@ -48,7 +50,9 @@
         android:layout_marginLeft="80dp"
         android:textAlignment="center"
         android:layout_marginRight="80dp"
-        android:id="@+id/getUserName"></EditText>
+        android:id="@+id/getUserName"
+        tools:ignore="HardcodedText"
+        android:importantForAutofill="no" />
 
     <android.widget.Button
         android:id="@+id/saveProfile"
@@ -60,7 +64,8 @@
         android:background="@color/back"
         android:textColor="@color/font"
         android:text="Save Profile"
-        android:textSize="19dp"></android.widget.Button>
+        tools:ignore="HardcodedText,SpUsage"
+        android:textSize="19dp"/>
 
     <ProgressBar
         android:id="@+id/profressbarOfSaveProfile"
@@ -68,6 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/saveProfile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"></ProgressBar>
+        android:layout_marginTop="30dp"/>
 
 </RelativeLayout>

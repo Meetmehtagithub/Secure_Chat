@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="50dp"
+    android:layout_marginStart="50dp"
     android:padding="2dp">
 
     <RelativeLayout
@@ -13,32 +14,34 @@
         android:layout_alignParentEnd="true"
         android:background="@drawable/sendearchatdrawable"
 
-        >
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/sendmessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="4dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="4dp"
             android:paddingBottom="15dp"
             android:text="s"
             android:textColor="#50586C"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/timeofmessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/sendmessage"
-            android:layout_marginLeft="-18dp"
+            android:layout_marginStart="-18dp"
             android:layout_marginTop="14dp"
-            android:layout_marginRight="5dp"
-            android:layout_toRightOf="@+id/sendmessage"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/sendmessage"
             android:padding="7dp"
             android:text="20:09 PM"
             android:textColor="#50586C"
-            android:textSize="8sp"></TextView>
+            android:textSize="8sp"
+            tools:ignore="HardcodedText,SmallSp" />
 
     </RelativeLayout>
 </RelativeLayout>

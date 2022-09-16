@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
@@ -7,13 +8,13 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="50dp"
 
         android:background="@drawable/reciverchatdrawable"
         android:id="@+id/layoutformessage"
 
-        >
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/sendmessage"
@@ -25,7 +26,8 @@
             android:paddingBottom="17dp"
             android:text="sendear message display"
             android:textColor="#DCE2F0"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,13 +35,13 @@
             android:id="@+id/timeofmessage"
             android:textSize="8sp"
 
-            android:layout_toRightOf="@+id/sendmessage"
-            android:layout_marginLeft="-40dp"
+            android:layout_toEndOf="@+id/sendmessage"
+            android:layout_marginStart="-40dp"
            android:layout_alignBottom="@+id/sendmessage"
             android:padding="7dp"
             android:text="20:09"
             android:textColor="#DCE2F0"
-            ></TextView>
+            tools:ignore="HardcodedText,SmallSp" />
 
     </RelativeLayout>
 </RelativeLayout>

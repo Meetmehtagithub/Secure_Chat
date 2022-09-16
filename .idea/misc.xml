@@ -14,12 +14,12 @@
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/drawable/messagebackground.xml" value="0.1895" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/drawable/reciverchatdrawable.xml" value="0.1895" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/drawable/sendearchatdrawable.xml" value="0.1895" />
-        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_chat.xml" value="0.264" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_chat.xml" value="0.1" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_otp_authentication.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_profile.xml" value="0.3086190917516219" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_set_profile.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_specifichat.xml" value="0.2" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_specifichat.xml" value="0.1" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_splash_screen.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/activity_update_profile.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/callfragment.xml" value="0.22826086956521738" />
@@ -27,7 +27,7 @@
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/chatlayout.xml" value="0.2734375" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/chatviewlayout.xml" value="0.4" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/recycerercharlayout.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/sendercharlayout.xml" value="1.5345622119815667" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/sendercharlayout.xml" value="1.3991596638655461" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/layout/statusfragment.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/menu/bottom_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat/Chat/app/src/main/res/menu/menu.xml" value="0.27447916666666666" />

@@ -1,11 +1,11 @@
 package com.example.chat;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -58,6 +58,7 @@ SimpleDateFormat simpleDateFormat;
     messagesAdapter messagesAdapter;
     ArrayList<Messages> messagesArrayList;
 
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +112,7 @@ SimpleDateFormat simpleDateFormat;
             DatabaseReference databaseReference = firebaseDatabase.getReference().child("chats").child(senderroom).child("messages");
             messagesAdapter = new messagesAdapter(specifichat.this, messagesArrayList);
             databaseReference.addValueEventListener(new ValueEventListener() {
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 

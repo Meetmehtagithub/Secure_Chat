@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,8 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textHeading"
@@ -25,7 +25,8 @@
         android:text="Enter the OTP "
         android:textAlignment="center"
         android:textColor="@color/back"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/getOtp"
@@ -36,14 +37,16 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+
         android:layout_marginBottom="120dp"
         android:backgroundTint="@color/back"
         android:hint="Enter OTP"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/back"
-        android:textColorHint="@color/back"></EditText>
+        android:textColorHint="@color/back"
+        android:importantForAutofill="no"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/changeNumbear"
@@ -54,8 +57,9 @@
         android:layout_marginTop="15dp"
         android:text="Didn't Recive OTP ? Change your Numbear"
         android:textColor="@color/back"
-        android:textSize="18sp"></TextView>
-        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
     <android.widget.Button
         android:layout_width="wrap_content"
         android:layout_height="40dp"
@@ -67,7 +71,8 @@
         android:layout_marginTop="40dp"
         android:background="@color/back"
         android:textColor="@color/font"
-        android:layout_centerHorizontal="true"></android.widget.Button>
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText" />
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,5 +80,5 @@
         android:id="@+id/profressbarOfOtpAuth"
         android:layout_marginTop="30dp"
 
-        android:layout_below="@+id/verifyOtp"></ProgressBar>
+        android:layout_below="@+id/verifyOtp"/>
 </RelativeLayout>

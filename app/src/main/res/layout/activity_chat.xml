@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
-        android:background="#7b9acc"
+        android:background="#7b9acd"
         android:id="@+id/toolBar"
         >
         <RelativeLayout
@@ -26,7 +26,8 @@
                 android:textColor="#FCF6F5"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:id="@+id/myAppText"></TextView>
+                android:id="@+id/myAppText"
+                tools:ignore="HardcodedText" />
 
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -48,14 +49,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/chat"
-            android:text="Chats"></com.google.android.material.tabs.TabItem>
+            android:text="Chats"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/call"
+            android:text="Call"
+            tools:ignore="HardcodedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/call"
-            android:text="Call"></com.google.android.material.tabs.TabItem>
+            />
     </com.google.android.material.tabs.TabLayout>
 
 
@@ -67,6 +71,6 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:background="@color/font"
         android:backgroundTint="@color/font"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"></androidx.viewpager.widget.ViewPager>
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"/>
 
 </RelativeLayout>

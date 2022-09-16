@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="80dp"
@@ -20,32 +21,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="7dp"
-            android:layout_toRightOf="@+id/cardviewofUserImage"
+            android:layout_toEndOf="@+id/cardviewofUserImage"
             android:text="name"
             android:textColor="@color/back"
             android:textSize="20sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/statusofuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nameofuser"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="0dp"
-            android:layout_toRightOf="@+id/cardviewofUserImage"
+            android:layout_toEndOf="@+id/cardviewofUserImage"
             android:text="status display here"
 
             android:textColor="@color/black"
-            android:textSize="12sp"></TextView>
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardviewofUserImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
 
             android:layout_marginTop="20dp"
@@ -58,7 +61,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"></ImageView>
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="ContentDescription" />
 
         </androidx.cardview.widget.CardView>
 
@@ -69,5 +73,5 @@
         android:backgroundTint="#a6a6a6"
         android:background="#a6a6a6"
         android:layout_below="@+id/rr"
-        android:layout_marginTop="-2dp"></RelativeLayout>
+        android:layout_marginTop="-2dp"/>
 </RelativeLayout>

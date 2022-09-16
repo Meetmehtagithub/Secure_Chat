@@ -24,10 +24,12 @@
                 android:id="@+id/backButtonOfviewProfile"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_baseline_arrow_back_24"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                tools:ignore="ContentDescription" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                tools:ignore="HardcodedText,RtlHardcoded"
                 android:text="Your Profile"
                 android:layout_toRightOf="@+id/backButtonOfviewProfile"
                 android:layout_marginLeft="10dp"
@@ -49,7 +51,7 @@
         android:layout_below="@+id/toolBarofviewProfileActivity"
         android:layout_marginBottom="20dp"
         android:id="@+id/viewUserImage"
-        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
         app:cardCornerRadius="130dp">
 
         <ImageView
@@ -58,7 +60,7 @@
             android:src="@drawable/defaultprofile"
             android:id="@+id/viewUserImageInImageview"
             android:scaleType="centerCrop"
-           />
+            tools:ignore="ContentDescription" />
 
     </androidx.cardview.widget.CardView>
 <ImageView
@@ -69,7 +71,8 @@
     app:tint="#716e6e"
     android:layout_alignLeft="@+id/viewUserName"
     android:layout_marginLeft="-60dp"
-    android:layout_centerInParent="true"/>
+    android:layout_centerInParent="true"
+    tools:ignore="RtlHardcoded" />
 
     <EditText
         android:id="@+id/viewUserName"
@@ -83,6 +86,7 @@
         android:layout_marginRight="90dp"
         android:clickable="false"
         android:enabled="false"
+        tools:ignore="HardcodedText"
         android:hint="Enter Your Name Here"
         android:inputType="textCapWords"
         android:textAlignment="center"/>
@@ -99,6 +103,7 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/back"
         android:text="Edit Profile"
-        android:textColor="@color/font" />
+        android:textColor="@color/font"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>
