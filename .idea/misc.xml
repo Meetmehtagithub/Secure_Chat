@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy final/Chat/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy final/Chat/app/src/main/res/layout/chatfragment.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy final/Chat/app/src/main/res/layout/chatviewlayout.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy final/Chat/app/src/main/res/layout/recycerercharlayout.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy final/Chat/app/src/main/res/layout/sendercharlayout.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy/Chat/app/src/main/res/layout/activity_chat.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy/Chat/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Meet/AndroidStudioProjects/Chat - Copy - Copy/Chat/app/src/main/res/layout/activity_otp_authentication.xml" value="0.27447916666666666" />

@@ -26,6 +26,7 @@
             android:paddingBottom="17dp"
             android:textColor="#DCE2F0"
             android:textSize="20sp"
+
             tools:ignore="HardcodedText" />
 
         <TextView

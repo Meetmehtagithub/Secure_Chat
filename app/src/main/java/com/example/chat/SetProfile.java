@@ -59,20 +59,14 @@ public class SetProfile extends AppCompatActivity {
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(task -> {
                     if (!task.isSuccessful()) {
-
                         return;
                     }
                     token = task.getResult();
                     // Get new FCM registration token
-
-
                     // Log and toast
                     System.out.println("token " + token);
                 });
-
-//
         setContentView(R.layout.activity_set_profile);
-
         mfirebaseAuth=FirebaseAuth.getInstance();
         FirebaseStorage mFireBaseStorage = FirebaseStorage.getInstance();
         mstorageReference= mFireBaseStorage.getReference();
@@ -146,7 +140,7 @@ public class SetProfile extends AppCompatActivity {
             e.printStackTrace();
 
         }
-
+        // Array
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
         assert bimap != null;
         bimap.compress(Bitmap.CompressFormat.JPEG,25,byteArrayOutputStream);
