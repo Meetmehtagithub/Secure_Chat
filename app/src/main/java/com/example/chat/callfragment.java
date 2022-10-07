@@ -22,6 +22,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
 
-    public class callfragment extends Fragment {
+public class callfragment extends Fragment {
 
 }

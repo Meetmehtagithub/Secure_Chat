@@ -2,17 +2,23 @@ package com.example.chat;
 
 public class firebasemodel {
 
-    String name;
-    String image;
-    String uid;
-    String status;
+    public String name;
+    public String image;
+    public String uid;
+    public String status;
+    public String token;
 
 
-    public firebasemodel(String name, String image, String uid, String status) {
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public firebasemodel(String name, String image, String uid, String status, String token) {
         this.name = name;
         this.image = image;
         this.uid = uid;
         this.status = status;
+        this.token=token;
     }
 
     public firebasemodel() {
@@ -32,6 +38,10 @@ public class firebasemodel {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getToken() {
+        return token;
     }
 
     public String getName() {

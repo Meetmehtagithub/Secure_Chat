@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,28 +34,29 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class updateProfile extends AppCompatActivity {
 
 
     private EditText mnewuserusername;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase;
+    public FirebaseAuth firebaseAuth;
+    public FirebaseDatabase firebaseDatabase;
 
     private TextView mmovetoupdatadprofile;
-    private FirebaseFirestore firebaseFirestore;
+    public FirebaseFirestore firebaseFirestore;
     private ImageView mgetnewuserimageviewinimageview;
-    private StorageReference storageReference;
-    private  String ImageURIacessToken;
+    public StorageReference storageReference;
+    public   String ImageURIacessToken;
     private androidx.appcompat.widget.Toolbar mtoolbarofupdateprofile;
     private ImageButton mbackButtonofupdateprofile;
-    private FirebaseStorage firebaseStorage;
+    public FirebaseStorage firebaseStorage;
     private ProgressBar mprogressbarofupdateprofile;
-    private Uri imagepath;
-    Intent intent ;
-    android.widget.Button updateprofilebutton;
-    private static int PICK_IMG=123;
-    String newName;
+    public Uri imagepath;
+    public Intent intent ;
+    public android.widget.Button updateprofilebutton;
+    private static int sPICK_IMG=123;
+    public String newName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +82,7 @@ public class updateProfile extends AppCompatActivity {
         });
 
         mnewuserusername.setText(intent.getStringExtra("nameofuser"));
-        DatabaseReference databaseReference =firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference =firebaseDatabase.getReference(Objects.requireNonNull(firebaseAuth.getUid()));
         updateprofilebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +97,7 @@ public class updateProfile extends AppCompatActivity {
                     userProfile muserprofile = new userProfile(newName,firebaseAuth.getUid());
                     databaseReference.setValue(muserprofile);
                     updateimagetostorage();
-                    Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_SHORT).show();
                     mprogressbarofupdateprofile.setVisibility(View.INVISIBLE);
                     Intent intent = new Intent(updateProfile.this,ChatActivity.class);
                     startActivity(intent);
@@ -107,7 +109,7 @@ public class updateProfile extends AppCompatActivity {
                     userProfile muserprofile = new userProfile(newName,firebaseAuth.getUid());
                     databaseReference.setValue(muserprofile);
                     updatenameofcloudfirestorege();
-                    Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Update",Toast.LENGTH_SHORT).show();
                     mprogressbarofupdateprofile.setVisibility(View.INVISIBLE);
                     Intent intent = new Intent(updateProfile.this,ChatActivity.class);
                     startActivity(intent);
@@ -119,13 +121,14 @@ public class updateProfile extends AppCompatActivity {
             }
         });
 
-mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent intent=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(intent,PICK_IMG);
-    }
-});
+    mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(intent,sPICK_IMG);
+        }
+    });
+
     storageReference=firebaseStorage.getReference();
     storageReference.child("Images").child(firebaseAuth.getUid()).child("Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
         @Override
@@ -139,25 +142,22 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
 
     private void updatenameofcloudfirestorege() {
 
-        DocumentReference documentReference=firebaseFirestore.collection("Users").document(firebaseAuth.getUid());
+        DocumentReference documentReference=firebaseFirestore.collection("Users").document(Objects.requireNonNull(firebaseAuth.getUid()));
         Map<String,Object> userData= new HashMap<>();
         userData.put("name",newName);
         userData.put("image",ImageURIacessToken);
         userData.put("uid",firebaseAuth.getUid());
         userData.put("status","Online");
-        documentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
+        Task<Void> voidTask = documentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(getApplicationContext(), "Profile update Successfully in Cloud", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Profile update Successfully in Cloud", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
     }
 
     private void updateimagetostorage() {
-        StorageReference ImageRef= storageReference.child("Images").child(firebaseAuth.getUid()).child("Profile Pic");
+        StorageReference ImageRef= storageReference.child("Images").child(Objects.requireNonNull(firebaseAuth.getUid())).child("Profile Pic");
         Bitmap bimap=null;
         try {
             bimap=MediaStore.Images.Media.getBitmap(getContentResolver(),imagepath);
@@ -170,6 +170,7 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
         }
 
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        assert bimap != null;
         bimap.compress(Bitmap.CompressFormat.JPEG,25,byteArrayOutputStream);
         byte[] data =byteArrayOutputStream.toByteArray();
         UploadTask uploadTask = ImageRef.putBytes(data);
@@ -180,7 +181,7 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onSuccess(Uri uri) {
                         ImageURIacessToken=uri.toString();
-                        Toast.makeText(getApplicationContext(), "URL get success", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "URL get success", Toast.LENGTH_SHORT).show();
                         updatenameofcloudfirestorege();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -190,7 +191,7 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
                     }
                 });
 
-                Toast.makeText(getApplicationContext(), "Image is update", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Image is update", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -205,8 +206,9 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==PICK_IMG&&resultCode==RESULT_OK)
+        if(requestCode==sPICK_IMG&&resultCode==RESULT_OK)
         {
+            assert data != null;
             imagepath=data.getData();
             mgetnewuserimageviewinimageview.setImageURI(imagepath);
         }
@@ -216,7 +218,7 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
     @Override
     protected void onStop() {
         super.onStop();
-        DocumentReference documentReference=firebaseFirestore.collection("Users").document(firebaseAuth.getUid());
+        DocumentReference documentReference=firebaseFirestore.collection("Users").document(Objects.requireNonNull(firebaseAuth.getUid()));
         documentReference.update("status","offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
@@ -228,7 +230,7 @@ mgetnewuserimageviewinimageview.setOnClickListener(new View.OnClickListener() {
     @Override
     protected void onStart() {
         super.onStart();
-        DocumentReference documentReference=firebaseFirestore.collection("Users").document(firebaseAuth.getUid());
+        DocumentReference documentReference=firebaseFirestore.collection("Users").document(Objects.requireNonNull(firebaseAuth.getUid()));
         documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {

@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".ProfileActivity">
-    <androidx.appcompat.widget.Toolbar
 
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
         android:background="@color/back"
-        android:id="@+id/toolBarofviewProfileActivity"
-        >
+        android:id="@+id/toolBarofviewProfileActivity">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
+
             <ImageButton
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -26,22 +27,23 @@
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 android:layout_centerVertical="true"
                 tools:ignore="ContentDescription" />
+
             <TextView
+                android:id="@+id/myAppText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="HardcodedText,RtlHardcoded"
-                android:text="Your Profile"
-                android:layout_toRightOf="@+id/backButtonOfviewProfile"
-                android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/backButtonOfviewProfile"
+                android:text="@string/txt_profile"
                 android:textColor="@color/font"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:id="@+id/myAppText"/>
+                tools:ignore="HardcodedText,RtlHardcoded" />
 
         </RelativeLayout>
-    </androidx.appcompat.widget.Toolbar>
 
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:layout_width="130dp"
@@ -53,43 +55,42 @@
         android:id="@+id/viewUserImage"
         android:layout_marginStart="80dp"
         app:cardCornerRadius="130dp">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/defaultprofile"
-            android:id="@+id/viewUserImageInImageview"
-            android:scaleType="centerCrop"
-            tools:ignore="ContentDescription" />
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/defaultprofile"
+        android:id="@+id/viewUserImageInImageview"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
     </androidx.cardview.widget.CardView>
-<ImageView
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:id="@+id/logoOviewProfile"
-    android:src="@drawable/ic_baseline_person_24"
-    app:tint="#716e6e"
-    android:layout_alignLeft="@+id/viewUserName"
-    android:layout_marginLeft="-60dp"
-    android:layout_centerInParent="true"
-    tools:ignore="RtlHardcoded" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/logoOviewProfile"
+        android:src="@drawable/ic_baseline_person_24"
+        app:tint="#716e6e"
+        android:layout_alignLeft="@+id/viewUserName"
+        android:layout_marginLeft="-60dp"
+        android:layout_centerInParent="true"
+        tools:ignore="RtlHardcoded" />
 
     <EditText
         android:id="@+id/viewUserName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/viewUserImage"
-        android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="85dp"
         android:layout_marginRight="90dp"
         android:clickable="false"
         android:enabled="false"
-        tools:ignore="HardcodedText"
-        android:hint="Enter Your Name Here"
+        android:hint="@string/ed_profile"
         android:inputType="textCapWords"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        tools:ignore="HardcodedText"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/movetoupdateprofile"
@@ -102,7 +103,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/back"
-        android:text="Edit Profile"
+        android:text="@string/btn_edit"
         android:textColor="@color/font"
         tools:ignore="HardcodedText" />
 

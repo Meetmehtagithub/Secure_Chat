@@ -24,7 +24,6 @@
             android:paddingTop="3dp"
             android:paddingRight="10dp"
             android:paddingBottom="17dp"
-            android:text="sendear message display"
             android:textColor="#DCE2F0"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />

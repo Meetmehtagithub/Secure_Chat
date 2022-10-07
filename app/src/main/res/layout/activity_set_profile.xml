@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Save Your Profile"
+        android:text="@string/txt_save"
         tools:ignore="HardcodedText"
         android:textColor="@color/back"
         android:textSize="30sp"
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/getUserImage"
-        android:hint="Enter Your Name Here"
+        android:hint="@string/ed_save"
         android:inputType="textCapWords"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
@@ -63,7 +63,7 @@
         android:layout_marginTop="50dp"
         android:background="@color/back"
         android:textColor="@color/font"
-        android:text="Save Profile"
+        android:text="@string/btn_save"
         tools:ignore="HardcodedText,SpUsage"
         android:textSize="19dp"/>
 

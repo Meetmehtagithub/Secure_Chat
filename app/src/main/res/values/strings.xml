@@ -1,3 +1,49 @@
 <resources>
+
+    <!--This Is Use For Manifest-->
     <string name="app_name">Chat</string>
+
+    <!--This Is Use For activity_chat.xml-->
+    <string name="secure">Secure Chat</string>
+    <string name="tab_chat">Chat</string>
+    <string name="tab_call">Call</string>
+
+    <!--This Is Use For Menu.xml-->
+    <string name="tool_profile">Profile</string>
+    <string name="tool_logout">Log Out</string>
+
+    <!--This Is Use For activity_Main.xml-->
+    <string name="txt_login">Login</string>
+    <string name="txt_num">Enter your Number</string>
+    <string name="btn_OTP">Send OTP</string>
+
+    <!--This Is Use For activity_otp_auth.xml-->
+    <string name="txt_otp">Enter The OTP</string>
+    <string name="ed_otp">Enter your OTP</string>
+    <string name="change_num">Didn\'t Recive OTP ? Change your Numbear</string>
+    <string name="btn_verify">Verify OTP</string>
+
+    <!--This Is Use For activity_profile.xml-->
+    <string name="txt_profile">Your Profile</string>
+    <string name="ed_profile">Enter Your Name Here</string>
+    <string name="btn_edit">Edit Profile</string>
+
+    <!--This Is Use For activity_set_profile.xml-->
+    <string name="txt_save">Save Your Profile</string>
+    <string name="ed_save">Enter Your Name Here</string>
+    <string name="btn_save">Save Profile</string>
+
+    <!--This Is Use For activity_specifichat.xml-->
+    <string name="txt_top_profile">Your Profile</string>
+    <string name="ed_msg">Type a Message</string>
+
+    <!--This Is Use For activity_update_profile.xml-->
+    <string name="txt_Update">Your Profile</string>
+    <string name="ed_new">Enter Your New Name Here</string>
+    <string name="btn_update">Update Profile</string>
+
+    <!--This Is Use For activity_update_profile.xml-->
+    <string name="txt_Chat">Name</string>
+    <string name="txt_update">Status Display Here</string>
+
 </resources>

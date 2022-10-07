@@ -9,9 +9,14 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -33,60 +38,56 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class ChatActivity extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    TabItem mchat,mcalls,mstatus;
-    ViewPager viewPager;
-    PagerAdapter pagerAdapter;
-    androidx.appcompat.widget.Toolbar toolbar;
-    FirebaseAuth firebaseAuth;
-    FirebaseFirestore firebaseFirestore;
+    public ViewPager viewPager; //
+    public PagerAdapter pagerAdapter;
+    public androidx.appcompat.widget.Toolbar toolbar;
+    public FirebaseAuth firebaseAuth;
+    public FirebaseFirestore firebaseFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        tabLayout =findViewById(R.id.include);
-        mchat=findViewById(R.id.chats);
-        mcalls=findViewById(R.id.call);
-//        mstatus=findViewById(R.id.status);
+        ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo nInfo = cm.getActiveNetworkInfo();
+        boolean connected = nInfo != null && nInfo.isAvailable() && nInfo.isConnected();
+        if(!connected)Toast.makeText(getApplicationContext(),"Pleace turn on your Internate", Toast.LENGTH_SHORT).show();
+        TabLayout mTabLayout = findViewById(R.id.include);
+        TabItem mChat = findViewById(R.id.chats);
+        TabItem mCalls = findViewById(R.id.call);
         viewPager=findViewById(R.id.fragmentcontainer);
         toolbar=findViewById(R.id.toolBar);
-
         firebaseFirestore=FirebaseFirestore.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
         setSupportActionBar(toolbar);
-
         Drawable drawable= ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_more_vert_24);
         toolbar.setOverflowIcon(drawable);
-        pagerAdapter = new pageradaptar(getSupportFragmentManager(),tabLayout.getTabCount());
+        pagerAdapter = new pageradaptar(getSupportFragmentManager(), mTabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
                 if(tab.getPosition()==0 || tab.getPosition()==1 || tab.getPosition()==2)
                 {
-
                     pagerAdapter.notifyDataSetChanged();
                 }
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
     }
-
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
@@ -115,16 +116,15 @@ public class ChatActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     protected void onStop() {
         super.onStop();
+
         DocumentReference documentReference=firebaseFirestore.collection("Users").document("OVi0d4P80Bg6iYd4unLcH5SfJzx2");
-        documentReference.update("status","offline").addOnSuccessListener(new OnSuccessListener<Void>() {
+        Task<Void> voidTask = documentReference.update("status", "offline").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(getApplicationContext(),"user is offline",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"user is offline",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -132,16 +132,12 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         DocumentReference documentReference=firebaseFirestore.collection("Users").document("OVi0d4P80Bg6iYd4unLcH5SfJzx2");
         documentReference.update("status","Online").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(getApplicationContext(),"user is online",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(),"user is online",Toast.LENGTH_SHORT).show();
             }
         });
     }
-
-
-
 }

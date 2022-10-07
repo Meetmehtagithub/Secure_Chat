@@ -10,10 +10,8 @@
         android:id="@+id/layoutformessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_alignParentEnd="true"
         android:background="@drawable/sendearchatdrawable"
-
         tools:ignore="UselessParent">
 
         <TextView
@@ -23,7 +21,6 @@
             android:paddingStart="10dp"
             android:paddingEnd="4dp"
             android:paddingBottom="15dp"
-            android:text="s"
             android:textColor="#50586C"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
@@ -44,4 +41,5 @@
             tools:ignore="HardcodedText,SmallSp" />
 
     </RelativeLayout>
+
 </RelativeLayout>

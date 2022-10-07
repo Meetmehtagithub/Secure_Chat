@@ -8,25 +8,24 @@
     tools:context=".ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
-
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
         android:background="#7b9acc"
-        android:id="@+id/toolBar"
-        >
+        android:id="@+id/toolBar">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
+
             <TextView
+                android:id="@+id/myAppText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chat App"
+                android:text="@string/secure"
                 android:textColor="#FCF6F5"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:id="@+id/myAppText"
                 tools:ignore="HardcodedText" />
 
         </RelativeLayout>
@@ -49,19 +48,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/chat"
-            android:text="Chats"
+            android:text="@string/tab_chat"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/call"
-            android:text="Call"
-            tools:ignore="HardcodedText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/call"
-            />
+            android:text="@string/tab_call"
+            tools:ignore="HardcodedText" />
     </com.google.android.material.tabs.TabLayout>
-
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fragmentcontainer"
@@ -71,6 +68,6 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:background="@color/font"
         android:backgroundTint="@color/font"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"/>
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
 </RelativeLayout>

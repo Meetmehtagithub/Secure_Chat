@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class pageradaptar extends FragmentPagerAdapter {
 
-    int tabCount;
+    public int tabCount;
     public pageradaptar(@NonNull FragmentManager fm) {
         super(fm);
     }

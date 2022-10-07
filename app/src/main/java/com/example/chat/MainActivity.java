@@ -32,83 +32,55 @@ import com.hbb20.CountryCodePicker;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
-
-
-
-
 public class MainActivity extends AppCompatActivity {
 
-
-
-
-
-    EditText MGetPhoneNumber;
-    android.widget.Button MSendOtp;
-    CountryCodePicker MCountryCodePicker;
-    String CountryCode;
-    String PhoneNumber;
-    FirebaseAuth firebaseAuth;
-    ProgressBar MProgressBarOfMain;
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks MCallBack;
-    String codesent;
-
-
-
-
-
+    private EditText mGetPhoneNumber;
+    private CountryCodePicker mCountryCodePicker;
+    public String CountryCode;
+    public String PhoneNumber;
+    public FirebaseAuth firebaseAuth;
+    private ProgressBar mProgressBarOfMain;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBack;
+    public String codesent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
-
-
         setContentView(R.layout.activity_main);
-        MCountryCodePicker = findViewById(R.id.CountryCodePickker);
-        MSendOtp = findViewById(R.id.SendOtp);
-        MGetPhoneNumber=findViewById(R.id.getPhoneNumber);
-        MProgressBarOfMain=findViewById(R.id.profressbarOfMain);
+        mCountryCodePicker = findViewById(R.id.CountryCodePickker);
+        Button mSendOtp = findViewById(R.id.SendOtp);
+        mGetPhoneNumber=findViewById(R.id.getPhoneNumber);
+        mProgressBarOfMain=findViewById(R.id.profressbarOfMain);
         firebaseAuth=FirebaseAuth.getInstance();
-        CountryCode= MCountryCodePicker.getSelectedCountryCode();
-        MProgressBarOfMain.setVisibility(View.INVISIBLE);
-        MCountryCodePicker.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
-            @Override
-            public void onCountrySelected() {
-                CountryCode= MCountryCodePicker.getSelectedCountryCode();
+        CountryCode= mCountryCodePicker.getSelectedCountryCode();
+        mProgressBarOfMain.setVisibility(View.INVISIBLE);
+        mCountryCodePicker.setOnCountryChangeListener(() -> CountryCode= mCountryCodePicker.getSelectedCountryCode());
+
+        mSendOtp.setOnClickListener(view -> {
+
+            String Number;
+            Number=mGetPhoneNumber.getText().toString();
+            if(Number.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Pleace Enter Your Number", Toast.LENGTH_SHORT).show();
+            }
+            else if(Number.length()<10) {
+                Toast.makeText(getApplicationContext(), "Pleace Enter Correct Number", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                mProgressBarOfMain.setVisibility(View.VISIBLE);
+                PhoneNumber ="+"+ CountryCode+Number;
+
+                PhoneAuthOptions phoneAuthOptions=PhoneAuthOptions.newBuilder(firebaseAuth)
+                        .setPhoneNumber(PhoneNumber)
+                        .setTimeout(30L,TimeUnit.SECONDS)
+                        .setActivity(MainActivity.this)
+                        .setCallbacks(mCallBack)
+                        .build();
+                PhoneAuthProvider.verifyPhoneNumber(phoneAuthOptions);
             }
         });
-
-        MSendOtp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String Number;
-                Number=MGetPhoneNumber.getText().toString();
-                if(Number.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Pleace Enter Your Number", Toast.LENGTH_SHORT).show();
-                }
-                else if(Number.length()<10) {
-                    Toast.makeText(getApplicationContext(), "Pleace Enter Correct Number", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    MProgressBarOfMain.setVisibility(View.VISIBLE);
-                    PhoneNumber ="+"+ CountryCode+Number;
-
-                    PhoneAuthOptions phoneAuthOptions=PhoneAuthOptions.newBuilder(firebaseAuth)
-                            .setPhoneNumber(PhoneNumber)
-                            .setTimeout(30L,TimeUnit.SECONDS)
-                            .setActivity(MainActivity.this)
-                            .setCallbacks(MCallBack)
-                            .build();
-                    PhoneAuthProvider.verifyPhoneNumber(phoneAuthOptions);
-                }
-            }
-        });
-        MCallBack=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        mCallBack=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
@@ -122,21 +94,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
-                Toast.makeText(getApplicationContext(),MGetPhoneNumber.getText().toString(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(),"OTP is sent",Toast.LENGTH_SHORT).show();
-                MProgressBarOfMain.setVisibility(View.INVISIBLE);
+                //Toast.makeText(getApplicationContext(),mGetPhoneNumber.getText().toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"OTP is sent",Toast.LENGTH_SHORT).show();
+                mProgressBarOfMain.setVisibility(View.INVISIBLE);
                 codesent=s;
                 Intent intent=new Intent(MainActivity.this,OtpAuthentication.class);
                 intent.putExtra("otp",codesent);
-                intent.putExtra("number",MGetPhoneNumber.getText().toString());
+                intent.putExtra("number",mGetPhoneNumber.getText().toString());
                 startActivity(intent);
             }
         };
     }
-
-
-
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -147,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
 }
 
 

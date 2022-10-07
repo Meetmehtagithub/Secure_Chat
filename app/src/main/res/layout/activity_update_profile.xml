@@ -6,40 +6,40 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".updateProfile">
-    <androidx.appcompat.widget.Toolbar
 
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
         android:background="@color/back"
-        android:id="@+id/toolBarofupdateProfileActivity"
-        >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/backButtonOfupdateProfile"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_baseline_arrow_back_24"
-                android:layout_centerVertical="true"
-                tools:ignore="ContentDescription" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your Profile"
-                android:layout_toEndOf="@+id/backButtonOfupdateProfile"
-                android:layout_marginStart="10dp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/font"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:id="@+id/myAppText"
-                tools:ignore="HardcodedText" />
+        android:id="@+id/toolBarofupdateProfileActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/backButtonOfupdateProfile"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_centerVertical="true"
+            tools:ignore="ContentDescription" />
 
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/myAppText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/backButtonOfupdateProfile"
+            android:text="@string/txt_Update"
+            android:textColor="@color/font"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
@@ -68,15 +68,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/getnewviewUserImage"
-        android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="85dp"
         android:layout_marginRight="90dp"
-        android:hint="Enter Your New Name Here"
+        android:hint="@string/ed_new"
+        android:importantForAutofill="no"
         android:inputType="textCapWords"
         android:textAlignment="center"
-        android:importantForAutofill="no"
         tools:ignore="HardcodedText" />
 
     <android.widget.Button
@@ -87,7 +86,7 @@
         android:id="@+id/updateprofilebutton"
         android:layout_marginTop="40dp"
         android:background="@color/back"
-        android:text="Update Profile0"
+        android:text="@string/btn_update"
         android:textColor="@color/font"
         tools:ignore="HardcodedText" />
 
@@ -98,4 +97,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:id="@+id/progressofupdateprofile"/>
+
 </RelativeLayout>

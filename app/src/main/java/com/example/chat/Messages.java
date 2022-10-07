@@ -3,11 +3,10 @@ package com.example.chat;
 
 public class Messages  {
 
-
-    String message;
-    String senderId;
-    long timestamp;
-    String currenttime;
+    public String message;
+    public String senderId;
+    public long timestamp;
+    public String currenttime;
 
     public void setMessage(String message) {
         this.message = message;

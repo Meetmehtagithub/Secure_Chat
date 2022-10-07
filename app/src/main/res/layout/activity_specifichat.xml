@@ -7,18 +7,14 @@
     tools:context=".specifichat">
 
     <androidx.appcompat.widget.Toolbar
-
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
         android:background="@color/back"
-        android:id="@+id/toolBarofspecificchat"
-        >
+        android:id="@+id/toolBarofspecificchat">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
+            android:layout_height="match_parent">
             <ImageButton
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -27,21 +23,14 @@
                 android:src="@drawable/ic_baseline_arrow_back_24"
                 android:layout_centerVertical="true"
                 tools:ignore="ContentDescription" />
-
-
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="35dp"
-
                 android:layout_height="35dp"
-              android:layout_marginStart="5dp"
-
+                android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/backButtonOfspecificchat"
                 android:id="@+id/cardviewofspecificuser"
                 android:layout_centerVertical="true"
                 app:cardCornerRadius="35dp">
-
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -49,7 +38,6 @@
                     android:id="@+id/specificchatuserimageviewofuser"
                     android:scaleType="centerCrop"
                     tools:ignore="ContentDescription" />
-
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -59,12 +47,11 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/cardviewofspecificuser"
-                android:text="Your Profile"
+                android:text="@string/txt_top_profile"
                 android:textColor="@color/font"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
-
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -76,7 +63,6 @@
         android:layout_below="@+id/toolBarofspecificchat"
         android:background="@color/font"
         android:padding="5dp" />
-
     <EditText
         android:id="@+id/getmessage"
         android:layout_width="match_parent"
@@ -87,7 +73,7 @@
         android:layout_marginBottom="5dp"
         android:autofillHints=""
         android:background="@drawable/messagebackground"
-        android:hint="Type a message"
+        android:hint="@string/ed_msg"
         android:inputType="textCapWords"
         android:paddingStart="20dp"
         android:paddingEnd="10dp"
@@ -96,7 +82,6 @@
         android:textColorHint="#a8A7a7"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
-
     <ImageButton
         android:id="@+id/file"
         android:layout_width="30dp"
@@ -108,9 +93,9 @@
         android:src="@drawable/ic_link"
         android:backgroundTint="@color/white"
         tools:ignore="ContentDescription,OnClick"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="45dp"
-
         android:layout_height="45dp"
         android:id="@+id/cardviewofsendmessage"
         android:layout_toEndOf="@+id/file"
@@ -118,16 +103,13 @@
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/black"
         android:layout_alignParentBottom="true"
-
         app:cardCornerRadius="45dp">
-
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
            android:src="@drawable/ic_baseline_arrow_forward_24"
             app:tint="@color/white"
             android:padding="6dp"
-
             android:backgroundTint="@android:color/darker_gray"
             android:background="@android:color/transparent"
             android:id="@+id/imageviewofsendmessage"

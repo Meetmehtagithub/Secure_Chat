@@ -20,11 +20,10 @@
             android:id="@+id/nameofuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="15dp"
             android:layout_marginTop="7dp"
             android:layout_toEndOf="@+id/cardviewofUserImage"
-            android:text="name"
+            android:text="@string/txt_Chat"
             android:textColor="@color/back"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -38,8 +37,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/cardviewofUserImage"
-            android:text="status display here"
-
+            android:text="@string/txt_update"
             android:textColor="@color/black"
             android:textSize="12sp"
             tools:ignore="HardcodedText" />
